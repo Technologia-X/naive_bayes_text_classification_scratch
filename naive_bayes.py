@@ -7,7 +7,11 @@ class MultinomialNaiveBayes:
         self.tokenizer = tokenizer
         self.classes = classes
 
-    
+    def group_by_class(self, X, y):
+        data = dict()
+        for c in self.classes:
+            data[c] = X[np.where(y == c)]
+        return data
     
     def fit(self, X, y):
         self.n_class_items = {}
