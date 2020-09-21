@@ -20,13 +20,13 @@ np.random.seed(RANDOM_SEED)
 train = pd.read_csv("./data/imdb_review_train.tsv", delimiter="\t")
 test = pd.read_csv("./data/imdb_review_test.tsv", delimiter="\t")
 
-text = " ".join(review for review in train.review)
+# text = " ".join(review for review in train.review)
 
-wordcloud = WordCloud(max_font_size=50, max_words=200, background_color="white", stopwords=stopwords.words("english")).generate(text)
-plt.figure()
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis("off")
-plt.savefig("./output/wordcloud.png")
+# wordcloud = WordCloud(max_font_size=50, max_words=200, background_color="white", stopwords=stopwords.words("english")).generate(text)
+# plt.figure()
+# plt.imshow(wordcloud, interpolation='bilinear')
+# plt.axis("off")
+# plt.savefig("./output/wordcloud.png")
 
 X = train['review'].values
 y = train['sentiment'].values
