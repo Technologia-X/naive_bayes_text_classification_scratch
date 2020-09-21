@@ -37,3 +37,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 MNB = MultinomialNaiveBayes(classes=np.unique(y), tokenizer=Tokenizer())
 MNB.fit(X_train, y_train)
+
+pred_sent = MNB.predict(X_test)
+print(accuracy_score(y_test, pred_sent))
+
+print(classification_report(y_test, y_hat))
+
