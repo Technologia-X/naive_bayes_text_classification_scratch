@@ -34,3 +34,5 @@ class MultinomialNaiveBayes:
                         self.vocab.add(word)
                     
                     self.word_counts[c][word] += count
+            
+            return self
