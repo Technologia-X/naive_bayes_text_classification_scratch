@@ -31,7 +31,7 @@ class MultinomialNaiveBayes:
             for text in data:
                 counts = Counter(self.tokenizer.tokenize(text))
                 for word, count in counts.item():
-                    if word no in self.vocab:
+                    if word not in self.vocab:
                         self.vocab.add(word)
                     
                     self.word_counts[c][word] += count
