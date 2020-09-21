@@ -53,3 +53,7 @@ plt.tight_layout()
 plt.ylabel('Actual sentiment')
 plt.xlabel('Predicted sentiment')
 plt.savefig("./output/confusion_matrix.png")
+
+test_pred = MNB.predict(test['review'].values)
+test['sentiment'] = test_pred
+test.to_csv("./output/test_data_with_sentiment.csv", index=False)
