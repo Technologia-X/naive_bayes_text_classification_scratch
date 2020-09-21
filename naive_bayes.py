@@ -36,3 +36,25 @@ class MultinomialNaiveBayes:
                     self.word_counts[c][word] += count
             
             return self
+
+        def laplace_smoothing(self, word, text_class):
+            num = self.word_counts[text_class][word] + 1
+            denom = self.n_class_items[text_class] + len(self.vocab)
+            return math.log(num / denom)
+
+        def predict(self, X):
+            result = []
+            for text in X:
+                class_scores = {c: self.log_class_priors[c] for c in self.classes}
+                words = set(self.tokenizer.tokenize(text))
+                
+                for word in words:
+                    if word not in self.vocab: continue
+
+                    for c in self.classes:
+                        log_w_given_c = self.laplace_smoothing(word, c)
+                        class_scores[c] += log_w_given_c
+
+                result.append(max(class_scores, key=class_scores.get))
+                
+            return result
