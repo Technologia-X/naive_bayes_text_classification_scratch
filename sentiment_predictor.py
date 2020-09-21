@@ -28,3 +28,12 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.savefig("./output/wordcloud.png")
 
+X = train['review'].values
+y = train['sentiment'].values
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=RANDOM_SEED
+)
+
+MNB = MultinomialNaiveBayes(classes=np.unique(y), tokenizer=Tokenizer())
+MNB.fit(X_train, y_train)
