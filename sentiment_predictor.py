@@ -41,5 +41,15 @@ MNB.fit(X_train, y_train)
 pred_sent = MNB.predict(X_test)
 print(accuracy_score(y_test, pred_sent))
 
-print(classification_report(y_test, y_hat))
+print(classification_report(y_test, pred_sent))
 
+cnf_matrix = confusion_matrix(y_test, pred_sent)
+class_names = ['negative', 'positive']
+fig,ax = plt.subplots()
+
+sns.heatmap(pd.DataFrame(cnf_matrix), annot=True, cmap="Blues", fmt="d", cbar=False, xticklabels=class_names, yticklabels=class_names)
+ax.xaxis.set_label_position('top')
+plt.tight_layout()
+plt.ylabel('Actual sentiment')
+plt.xlabel('Predicted sentiment')
+plt.savefig("./output/confusion_matrix.png")
