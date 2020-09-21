@@ -14,7 +14,7 @@ from tokenizer import Tokenizer
 
 sns.set(style='whitegrid', palette='muted')
 rcParams['figure.figsize'] = 14,8
-RANDOM_SEED = 66
+RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
 
 train = pd.read_csv("./data/imdb_review_train.tsv", delimiter="\t")

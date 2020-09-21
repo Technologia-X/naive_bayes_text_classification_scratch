@@ -22,7 +22,7 @@ class MultinomialNaiveBayes:
 
         n = len(X)
         grouped_data = self.group_by_class(X, y)
-
+        
         for c, data in grouped_data.items():
             self.n_class_items[c] = len(data)
             self.log_class_priors[c] = math.log(self.n_class_items[c] / n)
@@ -36,7 +36,7 @@ class MultinomialNaiveBayes:
                     
                     self.word_counts[c][word] += count
             
-            return self
+        return self
 
     def laplace_smoothing(self, word, text_class):
         num = self.word_counts[text_class][word] + 1
