@@ -44,3 +44,8 @@ At the end, test data was used to see how well the model can predict sentiment o
 2. Clone the repo
 3. Download new data from kaggle or anywhere or you can use the data provided in data folder
 4. Run sentiment_predictor.py
+
+## Contributor
+<a href="https://github.com/fadilparves/naive_bayes_sentiment/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=fadilparves/naive_bayes_sentiment" />
+</a>
